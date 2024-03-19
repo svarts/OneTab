@@ -1,12 +1,7 @@
 {
-  "name": "chrome-extension-boilerplate-react-vite",
+  "name": "onetab",
   "version": "0.0.1",
-  "description": "chrome extension boilerplate",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite.git"
-  },
+  "description": "OneTab is the best way to convert all of your tabs into a list and save memory on your computer.",
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "build:firefox": "tsc --noEmit && cross-env __FIREFOX__=true vite build",
