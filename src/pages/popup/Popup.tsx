@@ -55,13 +55,16 @@ const Popup = () => {
   return (
     <div className="flex items-center justify-center bg-neutral-900 text-white">
       <div className="w-full bg-neutral-900 rounded-lg shadow-xl border border-gray-400 overflow-hidden">
-        <header className="flex justify-between p-4 bg-neutral-800">
-          <img src="/icon-34.png" className='w-8 h-8' alt="icon" />
-          <h1 className="text-lg font-semibold mr-24">OneTab</h1>
-          <Button onClick={saveTabs} className="py-2 px-4 bg-lime-500 hover:bg-lime-400 rounded text-sm text-black font-bold -ml-2">
+        <header className="flex justify-center items-center p-4 bg-neutral-800">
+          <div className="flex flex-grow items-center justify-start">
+            <img src="/icon-34.png" className="w-8 h-8" alt="icon" />
+            <h1 className="text-white text-lg font-semibold ml-4">OneTab</h1>
+          </div>
+          <Button onClick={saveTabs} className="py-2 px-4 bg-lime-500 hover:bg-lime-400 rounded text-sm text-black font-bold">
             Save Tabs
           </Button>
         </header>
+
         <div className="flex p-4">
           <div className="flex-1 mr-2 w-32">
             <h2 className="text-md font-semibold mb-2">Open Tabs</h2>
