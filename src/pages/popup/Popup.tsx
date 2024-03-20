@@ -5,14 +5,22 @@ import useStorage from '@src/shared/hooks/useStorage';
 import exampleThemeStorage from '@src/shared/storages/exampleThemeStorage';
 import withSuspense from '@src/shared/hoc/withSuspense';
 import withErrorBoundary from '@src/shared/hoc/withErrorBoundary';
+import { Button } from '@/components/ui/button';
 
 const Popup = () => {
   const [tabs, setTabs] = useState([]);
+  const [savedTabs, setSavedTabs] = useState([]);
   const theme = useStorage(exampleThemeStorage);
 
   useEffect(() => {
     chrome.tabs.query({ currentWindow: true }, function (retrievedTabs) {
       setTabs(retrievedTabs);
+    });
+
+    chrome.storage.local.get('savedTabs', (result) => {
+      if (result.savedTabs) {
+        setSavedTabs(result.savedTabs);
+      }
     });
   }, []);
 
@@ -23,6 +31,7 @@ const Popup = () => {
         chrome.tabs.remove(tab.id);
       });
       setTabs([]);
+      setSavedTabs(tabUrls);
     });
   };
 
@@ -38,28 +47,20 @@ const Popup = () => {
         <p>
           Edit <code>src/pages/popup/Popup.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: theme === 'light' ? '#0281dc' : '#fff', marginBottom: '10px' }}>
-          Learn React
-        </a>
-        <button
-          style={{
-            backgroundColor: theme === 'light' ? '#fff' : '#000',
-            color: theme === 'light' ? '#000' : '#fff',
-          }}
-          onClick={saveTabs}>
-          Save All Tabs
-        </button>
+        <Button onClick={saveTabs} className="mb-4 text-center">
+          Save Tabs
+        </Button>
         <ul>
           {tabs.map(tab => (
             <li key={tab.id}>{tab.title}</li>
           ))}
         </ul>
-
+        <h2>Saved Tabs</h2>
+        <ul>
+          {savedTabs.map((url, index) => (
+            <li key={index}>{url}</li>
+          ))}
+        </ul>
       </header>
     </div>
   );
