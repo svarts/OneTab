@@ -47,16 +47,17 @@ const Popup = () => {
       const { hostname } = new URL(url);
       return `https://www.google.com/s2/favicons?sz=64&domain=${hostname}`;
     } catch {
-      return ''; 
+      return '';
     }
   };
-  
+
 
   return (
     <div className="flex items-center justify-center bg-neutral-900 text-white">
       <div className="w-full bg-neutral-900 rounded-lg shadow-xl border border-gray-400 overflow-hidden">
         <header className="flex justify-between p-4 bg-neutral-800">
-          <h1 className="text-lg font-semibold">OneTab</h1>
+          <img src="/icon-34.png" className='w-8 h-8' alt="icon" />
+          <h1 className="text-lg font-semibold mr-28">OneTab</h1>
           <Button onClick={saveTabs} className="py-2 px-4 bg-lime-500 hover:bg-lime-400 rounded text-sm text-black font-bold">
             Save Tabs
           </Button>
