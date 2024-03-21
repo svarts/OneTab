@@ -1,0 +1,1 @@
+import{j as o,c as t}from"../../../assets/js/client.IMDuGZmW.js";const r=()=>o.jsx("div",{className:"container",children:"Options"});function e(){const n=document.querySelector("#app-container");if(!n)throw new Error("Can not find #app-container");t(n).render(o.jsx(r,{}))}e();

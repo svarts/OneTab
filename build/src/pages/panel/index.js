@@ -1,0 +1,1 @@
+import{j as n,c as e}from"../../../assets/js/client.IMDuGZmW.js";const r=()=>n.jsx("div",{className:"container",children:n.jsx("h1",{className:"",children:"Dev Tools Panel"})});function t(){const o=document.querySelector("#app-container");if(!o)throw new Error("Can not find #app-container");e(o).render(n.jsx(r,{}))}t();

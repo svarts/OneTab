@@ -4,9 +4,6 @@
 # testing
 /coverage
 
-# build
-/build
-
 # etc
 .DS_Store
 .env.local
