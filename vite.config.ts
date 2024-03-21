@@ -24,7 +24,7 @@ export default defineConfig({
   plugins: [...getPlugins(isDev), react()],
   publicDir: resolve(rootDir, 'public'),
   build: {
-    outDir: resolve(rootDir, 'dist'),
+    outDir: resolve(rootDir, 'build'),
     /** Can slow down build speed. */
     // sourcemap: isDev,
     minify: isProduction,

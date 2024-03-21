@@ -3,7 +3,7 @@ import '@pages/popup/Popup.css';
 import withSuspense from '@src/shared/hoc/withSuspense';
 import withErrorBoundary from '@src/shared/hoc/withErrorBoundary';
 import { Button } from '@/components/ui/button';
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Popup = () => {
   const [tabs, setTabs] = useState([]);
@@ -14,7 +14,7 @@ const Popup = () => {
       setTabs(retrievedTabs);
     });
 
-    chrome.storage.local.get('savedTabs', (result) => {
+    chrome.storage.local.get('savedTabs', result => {
       if (result.savedTabs) {
         setSavedTabs(result.savedTabs);
       }
@@ -38,11 +38,11 @@ const Popup = () => {
     });
   };
 
-  const openTab = (url) => {
+  const openTab = url => {
     chrome.tabs.create({ url });
   };
 
-  const getFaviconUrl = (url) => {
+  const getFaviconUrl = url => {
     try {
       const { hostname } = new URL(url);
       return `https://www.google.com/s2/favicons?sz=64&domain=${hostname}`;
@@ -50,7 +50,6 @@ const Popup = () => {
       return '';
     }
   };
-
 
   return (
     <div className="flex items-center justify-center bg-neutral-900 text-white">
@@ -60,14 +59,16 @@ const Popup = () => {
             <img src="/icon-34.png" className="w-8 h-8" alt="icon" />
             <h1 className="text-white text-lg font-semibold ml-4">OneTab</h1>
           </div>
-          <Button onClick={saveTabs} className="py-2 px-4 bg-lime-500 hover:bg-lime-400 rounded text-sm text-black font-bold">
+          <Button
+            onClick={saveTabs}
+            className="py-2 px-4 bg-lime-500 hover:bg-lime-400 rounded text-sm text-black font-bold">
             Save Tabs
           </Button>
         </header>
 
         <div className="flex p-4">
           <div className="flex-1 mr-2 w-32">
-            <h2 className="text-md font-semibold mb-2">Open Tabs</h2>
+            <h2 className="text-md font-semibold mb-2">Active Tabs</h2>
             <ScrollArea className="rounded bg-neutral-800 whitespace-nowrap">
               {tabs.map(tab => (
                 <li key={tab.id} className="flex items-center border-b border-neutral-600 last:border-b-0 p-2">
@@ -90,7 +91,9 @@ const Popup = () => {
                 </li>
               ))}
             </ScrollArea>
-            <Button onClick={clearSavedTabs} className="py-2 px-4 bg-rose-900 hover:bg-rose-950 rounded text-sm text-white font-semibold mt-2">
+            <Button
+              onClick={clearSavedTabs}
+              className="py-2 px-4 bg-rose-900 hover:bg-rose-950 rounded text-sm text-white font-semibold mt-2">
               Clear Saved Tabs
             </Button>
           </div>
