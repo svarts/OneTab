@@ -1,1 +1,1075 @@
-var _=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{},B={exports:{}};(function(M,W){(function(h,u){u(M)})(typeof globalThis<"u"?globalThis:typeof self<"u"?self:_,function(h){var u,T;if(!((T=(u=globalThis.chrome)==null?void 0:u.runtime)!=null&&T.id))throw new Error("This script should only be loaded in a browser extension.");if(typeof globalThis.browser>"u"||Object.getPrototypeOf(globalThis.browser)!==Object.prototype){const N="The message port closed before a response was received.",R=l=>{const w={alarms:{clear:{minArgs:0,maxArgs:1},clearAll:{minArgs:0,maxArgs:0},get:{minArgs:0,maxArgs:1},getAll:{minArgs:0,maxArgs:0}},bookmarks:{create:{minArgs:1,maxArgs:1},get:{minArgs:1,maxArgs:1},getChildren:{minArgs:1,maxArgs:1},getRecent:{minArgs:1,maxArgs:1},getSubTree:{minArgs:1,maxArgs:1},getTree:{minArgs:0,maxArgs:0},move:{minArgs:2,maxArgs:2},remove:{minArgs:1,maxArgs:1},removeTree:{minArgs:1,maxArgs:1},search:{minArgs:1,maxArgs:1},update:{minArgs:2,maxArgs:2}},browserAction:{disable:{minArgs:0,maxArgs:1,fallbackToNoCallback:!0},enable:{minArgs:0,maxArgs:1,fallbackToNoCallback:!0},getBadgeBackgroundColor:{minArgs:1,maxArgs:1},getBadgeText:{minArgs:1,maxArgs:1},getPopup:{minArgs:1,maxArgs:1},getTitle:{minArgs:1,maxArgs:1},openPopup:{minArgs:0,maxArgs:0},setBadgeBackgroundColor:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0},setBadgeText:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0},setIcon:{minArgs:1,maxArgs:1},setPopup:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0},setTitle:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0}},browsingData:{remove:{minArgs:2,maxArgs:2},removeCache:{minArgs:1,maxArgs:1},removeCookies:{minArgs:1,maxArgs:1},removeDownloads:{minArgs:1,maxArgs:1},removeFormData:{minArgs:1,maxArgs:1},removeHistory:{minArgs:1,maxArgs:1},removeLocalStorage:{minArgs:1,maxArgs:1},removePasswords:{minArgs:1,maxArgs:1},removePluginData:{minArgs:1,maxArgs:1},settings:{minArgs:0,maxArgs:0}},commands:{getAll:{minArgs:0,maxArgs:0}},contextMenus:{remove:{minArgs:1,maxArgs:1},removeAll:{minArgs:0,maxArgs:0},update:{minArgs:2,maxArgs:2}},cookies:{get:{minArgs:1,maxArgs:1},getAll:{minArgs:1,maxArgs:1},getAllCookieStores:{minArgs:0,maxArgs:0},remove:{minArgs:1,maxArgs:1},set:{minArgs:1,maxArgs:1}},devtools:{inspectedWindow:{eval:{minArgs:1,maxArgs:2,singleCallbackArg:!1}},panels:{create:{minArgs:3,maxArgs:3,singleCallbackArg:!0},elements:{createSidebarPane:{minArgs:1,maxArgs:1}}}},downloads:{cancel:{minArgs:1,maxArgs:1},download:{minArgs:1,maxArgs:1},erase:{minArgs:1,maxArgs:1},getFileIcon:{minArgs:1,maxArgs:2},open:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0},pause:{minArgs:1,maxArgs:1},removeFile:{minArgs:1,maxArgs:1},resume:{minArgs:1,maxArgs:1},search:{minArgs:1,maxArgs:1},show:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0}},extension:{isAllowedFileSchemeAccess:{minArgs:0,maxArgs:0},isAllowedIncognitoAccess:{minArgs:0,maxArgs:0}},history:{addUrl:{minArgs:1,maxArgs:1},deleteAll:{minArgs:0,maxArgs:0},deleteRange:{minArgs:1,maxArgs:1},deleteUrl:{minArgs:1,maxArgs:1},getVisits:{minArgs:1,maxArgs:1},search:{minArgs:1,maxArgs:1}},i18n:{detectLanguage:{minArgs:1,maxArgs:1},getAcceptLanguages:{minArgs:0,maxArgs:0}},identity:{launchWebAuthFlow:{minArgs:1,maxArgs:1}},idle:{queryState:{minArgs:1,maxArgs:1}},management:{get:{minArgs:1,maxArgs:1},getAll:{minArgs:0,maxArgs:0},getSelf:{minArgs:0,maxArgs:0},setEnabled:{minArgs:2,maxArgs:2},uninstallSelf:{minArgs:0,maxArgs:1}},notifications:{clear:{minArgs:1,maxArgs:1},create:{minArgs:1,maxArgs:2},getAll:{minArgs:0,maxArgs:0},getPermissionLevel:{minArgs:0,maxArgs:0},update:{minArgs:2,maxArgs:2}},pageAction:{getPopup:{minArgs:1,maxArgs:1},getTitle:{minArgs:1,maxArgs:1},hide:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0},setIcon:{minArgs:1,maxArgs:1},setPopup:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0},setTitle:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0},show:{minArgs:1,maxArgs:1,fallbackToNoCallback:!0}},permissions:{contains:{minArgs:1,maxArgs:1},getAll:{minArgs:0,maxArgs:0},remove:{minArgs:1,maxArgs:1},request:{minArgs:1,maxArgs:1}},runtime:{getBackgroundPage:{minArgs:0,maxArgs:0},getPlatformInfo:{minArgs:0,maxArgs:0},openOptionsPage:{minArgs:0,maxArgs:0},requestUpdateCheck:{minArgs:0,maxArgs:0},sendMessage:{minArgs:1,maxArgs:3},sendNativeMessage:{minArgs:2,maxArgs:2},setUninstallURL:{minArgs:1,maxArgs:1}},sessions:{getDevices:{minArgs:0,maxArgs:1},getRecentlyClosed:{minArgs:0,maxArgs:1},restore:{minArgs:0,maxArgs:1}},storage:{local:{clear:{minArgs:0,maxArgs:0},get:{minArgs:0,maxArgs:1},getBytesInUse:{minArgs:0,maxArgs:1},remove:{minArgs:1,maxArgs:1},set:{minArgs:1,maxArgs:1}},managed:{get:{minArgs:0,maxArgs:1},getBytesInUse:{minArgs:0,maxArgs:1}},sync:{clear:{minArgs:0,maxArgs:0},get:{minArgs:0,maxArgs:1},getBytesInUse:{minArgs:0,maxArgs:1},remove:{minArgs:1,maxArgs:1},set:{minArgs:1,maxArgs:1}}},tabs:{captureVisibleTab:{minArgs:0,maxArgs:2},create:{minArgs:1,maxArgs:1},detectLanguage:{minArgs:0,maxArgs:1},discard:{minArgs:0,maxArgs:1},duplicate:{minArgs:1,maxArgs:1},executeScript:{minArgs:1,maxArgs:2},get:{minArgs:1,maxArgs:1},getCurrent:{minArgs:0,maxArgs:0},getZoom:{minArgs:0,maxArgs:1},getZoomSettings:{minArgs:0,maxArgs:1},goBack:{minArgs:0,maxArgs:1},goForward:{minArgs:0,maxArgs:1},highlight:{minArgs:1,maxArgs:1},insertCSS:{minArgs:1,maxArgs:2},move:{minArgs:2,maxArgs:2},query:{minArgs:1,maxArgs:1},reload:{minArgs:0,maxArgs:2},remove:{minArgs:1,maxArgs:1},removeCSS:{minArgs:1,maxArgs:2},sendMessage:{minArgs:2,maxArgs:3},setZoom:{minArgs:1,maxArgs:2},setZoomSettings:{minArgs:1,maxArgs:2},update:{minArgs:1,maxArgs:2}},topSites:{get:{minArgs:0,maxArgs:0}},webNavigation:{getAllFrames:{minArgs:1,maxArgs:1},getFrame:{minArgs:1,maxArgs:1}},webRequest:{handlerBehaviorChanged:{minArgs:0,maxArgs:0}},windows:{create:{minArgs:0,maxArgs:1},get:{minArgs:1,maxArgs:2},getAll:{minArgs:0,maxArgs:1},getCurrent:{minArgs:0,maxArgs:1},getLastFocused:{minArgs:0,maxArgs:1},remove:{minArgs:1,maxArgs:1},update:{minArgs:2,maxArgs:2}}};if(Object.keys(w).length===0)throw new Error("api-metadata.json has not been included in browser-polyfill");class C extends WeakMap{constructor(r,g=void 0){super(g),this.createItem=r}get(r){return this.has(r)||this.set(r,this.createItem(r)),super.get(r)}}const $=e=>e&&typeof e=="object"&&typeof e.then=="function",v=(e,r)=>(...g)=>{l.runtime.lastError?e.reject(new Error(l.runtime.lastError.message)):r.singleCallbackArg||g.length<=1&&r.singleCallbackArg!==!1?e.resolve(g[0]):e.resolve(g)},d=e=>e==1?"argument":"arguments",F=(e,r)=>function(n,...a){if(a.length<r.minArgs)throw new Error(`Expected at least ${r.minArgs} ${d(r.minArgs)} for ${e}(), got ${a.length}`);if(a.length>r.maxArgs)throw new Error(`Expected at most ${r.maxArgs} ${d(r.maxArgs)} for ${e}(), got ${a.length}`);return new Promise((i,t)=>{if(r.fallbackToNoCallback)try{n[e](...a,v({resolve:i,reject:t},r))}catch(s){console.warn(`${e} API method doesn't seem to support the callback parameter, falling back to call it without a callback: `,s),n[e](...a),r.fallbackToNoCallback=!1,r.noCallback=!0,i()}else r.noCallback?(n[e](...a),i()):n[e](...a,v({resolve:i,reject:t},r))})},E=(e,r,g)=>new Proxy(r,{apply(n,a,i){return g.call(a,e,...i)}});let f=Function.call.bind(Object.prototype.hasOwnProperty);const b=(e,r={},g={})=>{let n=Object.create(null),a={has(t,s){return s in e||s in n},get(t,s,A){if(s in n)return n[s];if(!(s in e))return;let m=e[s];if(typeof m=="function")if(typeof r[s]=="function")m=E(e,e[s],r[s]);else if(f(g,s)){let c=F(s,g[s]);m=E(e,e[s],c)}else m=m.bind(e);else if(typeof m=="object"&&m!==null&&(f(r,s)||f(g,s)))m=b(m,r[s],g[s]);else if(f(g,"*"))m=b(m,r[s],g["*"]);else return Object.defineProperty(n,s,{configurable:!0,enumerable:!0,get(){return e[s]},set(c){e[s]=c}}),m;return n[s]=m,m},set(t,s,A,m){return s in n?n[s]=A:e[s]=A,!0},defineProperty(t,s,A){return Reflect.defineProperty(n,s,A)},deleteProperty(t,s){return Reflect.deleteProperty(n,s)}},i=Object.create(e);return new Proxy(i,a)},p=e=>({addListener(r,g,...n){r.addListener(e.get(g),...n)},hasListener(r,g){return r.hasListener(e.get(g))},removeListener(r,g){r.removeListener(e.get(g))}}),j=new C(e=>typeof e!="function"?e:function(g){const n=b(g,{},{getContent:{minArgs:0,maxArgs:0}});e(n)}),P=new C(e=>typeof e!="function"?e:function(g,n,a){let i=!1,t,s=new Promise(x=>{t=function(o){i=!0,x(o)}}),A;try{A=e(g,n,t)}catch(x){A=Promise.reject(x)}const m=A!==!0&&$(A);if(A!==!0&&!m&&!i)return!1;const c=x=>{x.then(o=>{a(o)},o=>{let y;o&&(o instanceof Error||typeof o.message=="string")?y=o.message:y="An unexpected error occurred",a({__mozWebExtensionPolyfillReject__:!0,message:y})}).catch(o=>{console.error("Failed to send onMessage rejected reply",o)})};return c(m?A:s),!0}),L=({reject:e,resolve:r},g)=>{l.runtime.lastError?l.runtime.lastError.message===N?r():e(new Error(l.runtime.lastError.message)):g&&g.__mozWebExtensionPolyfillReject__?e(new Error(g.message)):r(g)},S=(e,r,g,...n)=>{if(n.length<r.minArgs)throw new Error(`Expected at least ${r.minArgs} ${d(r.minArgs)} for ${e}(), got ${n.length}`);if(n.length>r.maxArgs)throw new Error(`Expected at most ${r.maxArgs} ${d(r.maxArgs)} for ${e}(), got ${n.length}`);return new Promise((a,i)=>{const t=L.bind(null,{resolve:a,reject:i});n.push(t),g.sendMessage(...n)})},O={devtools:{network:{onRequestFinished:p(j)}},runtime:{onMessage:p(P),onMessageExternal:p(P),sendMessage:S.bind(null,"sendMessage",{minArgs:1,maxArgs:3})},tabs:{sendMessage:S.bind(null,"sendMessage",{minArgs:2,maxArgs:3})}},k={clear:{minArgs:1,maxArgs:1},get:{minArgs:1,maxArgs:1},set:{minArgs:1,maxArgs:1}};return w.privacy={network:{"*":k},services:{"*":k},websites:{"*":k}},b(l,O,w)};h.exports=R(chrome)}else h.exports=globalThis.browser})})(B);console.log("background loaded");
+var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+const LOCAL_RELOAD_SOCKET_PORT = 8081;
+const LOCAL_RELOAD_SOCKET_URL = `ws://localhost:${LOCAL_RELOAD_SOCKET_PORT}`;
+class MessageInterpreter {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  constructor() {
+  }
+  static send(message) {
+    return JSON.stringify(message);
+  }
+  static receive(serializedMessage) {
+    return JSON.parse(serializedMessage);
+  }
+}
+function _optionalChain(ops) {
+  let lastAccessLHS = void 0;
+  let value = ops[0];
+  let i = 1;
+  while (i < ops.length) {
+    const op = ops[i];
+    const fn = ops[i + 1];
+    i += 2;
+    if ((op === "optionalAccess" || op === "optionalCall") && value == null) {
+      return void 0;
+    }
+    if (op === "access" || op === "optionalAccess") {
+      lastAccessLHS = value;
+      value = fn(value);
+    } else if (op === "call" || op === "optionalCall") {
+      value = fn((...args) => value.call(lastAccessLHS, ...args));
+      lastAccessLHS = void 0;
+    }
+  }
+  return value;
+}
+let needToUpdate = false;
+function initReloadClient({
+  watchPath,
+  onUpdate,
+  onForceReload
+}) {
+  const socket = new WebSocket(LOCAL_RELOAD_SOCKET_URL);
+  function sendUpdateCompleteMessage() {
+    socket.send(MessageInterpreter.send({ type: "done_update" }));
+  }
+  socket.addEventListener("message", (event) => {
+    const message = MessageInterpreter.receive(String(event.data));
+    switch (message.type) {
+      case "do_update": {
+        if (needToUpdate) {
+          sendUpdateCompleteMessage();
+          needToUpdate = false;
+          onUpdate();
+        }
+        return;
+      }
+      case "wait_update": {
+        if (!needToUpdate) {
+          needToUpdate = message.path.includes(watchPath);
+        }
+        return;
+      }
+      case "force_reload": {
+        _optionalChain([onForceReload, "optionalCall", (_) => _()]);
+        return;
+      }
+    }
+  });
+  socket.onclose = () => {
+    console.log(
+      `Reload server disconnected.
+Please check if the WebSocket server is running properly on ${LOCAL_RELOAD_SOCKET_URL}. This feature detects changes in the code and helps the browser to reload the extension or refresh the current tab.`
+    );
+    setTimeout(() => {
+      initReloadClient({ watchPath, onUpdate });
+    }, 1e3);
+  };
+  return socket;
+}
+function addHmrIntoScript(watchPath) {
+  const reload = () => {
+    chrome.runtime.reload();
+  };
+  initReloadClient({
+    watchPath,
+    onUpdate: reload,
+    onForceReload: reload
+  });
+}
+var browserPolyfill = { exports: {} };
+(function(module, exports) {
+  (function(global2, factory) {
+    {
+      factory(module);
+    }
+  })(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : commonjsGlobal, function(module2) {
+    var _a, _b;
+    if (!((_b = (_a = globalThis.chrome) == null ? void 0 : _a.runtime) == null ? void 0 : _b.id)) {
+      throw new Error("This script should only be loaded in a browser extension.");
+    }
+    if (typeof globalThis.browser === "undefined" || Object.getPrototypeOf(globalThis.browser) !== Object.prototype) {
+      const CHROME_SEND_MESSAGE_CALLBACK_NO_RESPONSE_MESSAGE = "The message port closed before a response was received.";
+      const wrapAPIs = (extensionAPIs) => {
+        const apiMetadata = {
+          "alarms": {
+            "clear": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "clearAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "get": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "getAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            }
+          },
+          "bookmarks": {
+            "create": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "get": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getChildren": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getRecent": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getSubTree": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getTree": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "move": {
+              "minArgs": 2,
+              "maxArgs": 2
+            },
+            "remove": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeTree": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "search": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "update": {
+              "minArgs": 2,
+              "maxArgs": 2
+            }
+          },
+          "browserAction": {
+            "disable": {
+              "minArgs": 0,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "enable": {
+              "minArgs": 0,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "getBadgeBackgroundColor": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getBadgeText": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getPopup": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getTitle": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "openPopup": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "setBadgeBackgroundColor": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "setBadgeText": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "setIcon": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "setPopup": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "setTitle": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            }
+          },
+          "browsingData": {
+            "remove": {
+              "minArgs": 2,
+              "maxArgs": 2
+            },
+            "removeCache": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeCookies": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeDownloads": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeFormData": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeHistory": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeLocalStorage": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removePasswords": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removePluginData": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "settings": {
+              "minArgs": 0,
+              "maxArgs": 0
+            }
+          },
+          "commands": {
+            "getAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            }
+          },
+          "contextMenus": {
+            "remove": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "update": {
+              "minArgs": 2,
+              "maxArgs": 2
+            }
+          },
+          "cookies": {
+            "get": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getAll": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getAllCookieStores": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "remove": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "set": {
+              "minArgs": 1,
+              "maxArgs": 1
+            }
+          },
+          "devtools": {
+            "inspectedWindow": {
+              "eval": {
+                "minArgs": 1,
+                "maxArgs": 2,
+                "singleCallbackArg": false
+              }
+            },
+            "panels": {
+              "create": {
+                "minArgs": 3,
+                "maxArgs": 3,
+                "singleCallbackArg": true
+              },
+              "elements": {
+                "createSidebarPane": {
+                  "minArgs": 1,
+                  "maxArgs": 1
+                }
+              }
+            }
+          },
+          "downloads": {
+            "cancel": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "download": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "erase": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getFileIcon": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "open": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "pause": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeFile": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "resume": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "search": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "show": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            }
+          },
+          "extension": {
+            "isAllowedFileSchemeAccess": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "isAllowedIncognitoAccess": {
+              "minArgs": 0,
+              "maxArgs": 0
+            }
+          },
+          "history": {
+            "addUrl": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "deleteAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "deleteRange": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "deleteUrl": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getVisits": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "search": {
+              "minArgs": 1,
+              "maxArgs": 1
+            }
+          },
+          "i18n": {
+            "detectLanguage": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getAcceptLanguages": {
+              "minArgs": 0,
+              "maxArgs": 0
+            }
+          },
+          "identity": {
+            "launchWebAuthFlow": {
+              "minArgs": 1,
+              "maxArgs": 1
+            }
+          },
+          "idle": {
+            "queryState": {
+              "minArgs": 1,
+              "maxArgs": 1
+            }
+          },
+          "management": {
+            "get": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "getSelf": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "setEnabled": {
+              "minArgs": 2,
+              "maxArgs": 2
+            },
+            "uninstallSelf": {
+              "minArgs": 0,
+              "maxArgs": 1
+            }
+          },
+          "notifications": {
+            "clear": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "create": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "getAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "getPermissionLevel": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "update": {
+              "minArgs": 2,
+              "maxArgs": 2
+            }
+          },
+          "pageAction": {
+            "getPopup": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getTitle": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "hide": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "setIcon": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "setPopup": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "setTitle": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            },
+            "show": {
+              "minArgs": 1,
+              "maxArgs": 1,
+              "fallbackToNoCallback": true
+            }
+          },
+          "permissions": {
+            "contains": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getAll": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "remove": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "request": {
+              "minArgs": 1,
+              "maxArgs": 1
+            }
+          },
+          "runtime": {
+            "getBackgroundPage": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "getPlatformInfo": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "openOptionsPage": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "requestUpdateCheck": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "sendMessage": {
+              "minArgs": 1,
+              "maxArgs": 3
+            },
+            "sendNativeMessage": {
+              "minArgs": 2,
+              "maxArgs": 2
+            },
+            "setUninstallURL": {
+              "minArgs": 1,
+              "maxArgs": 1
+            }
+          },
+          "sessions": {
+            "getDevices": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "getRecentlyClosed": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "restore": {
+              "minArgs": 0,
+              "maxArgs": 1
+            }
+          },
+          "storage": {
+            "local": {
+              "clear": {
+                "minArgs": 0,
+                "maxArgs": 0
+              },
+              "get": {
+                "minArgs": 0,
+                "maxArgs": 1
+              },
+              "getBytesInUse": {
+                "minArgs": 0,
+                "maxArgs": 1
+              },
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
+              },
+              "set": {
+                "minArgs": 1,
+                "maxArgs": 1
+              }
+            },
+            "managed": {
+              "get": {
+                "minArgs": 0,
+                "maxArgs": 1
+              },
+              "getBytesInUse": {
+                "minArgs": 0,
+                "maxArgs": 1
+              }
+            },
+            "sync": {
+              "clear": {
+                "minArgs": 0,
+                "maxArgs": 0
+              },
+              "get": {
+                "minArgs": 0,
+                "maxArgs": 1
+              },
+              "getBytesInUse": {
+                "minArgs": 0,
+                "maxArgs": 1
+              },
+              "remove": {
+                "minArgs": 1,
+                "maxArgs": 1
+              },
+              "set": {
+                "minArgs": 1,
+                "maxArgs": 1
+              }
+            }
+          },
+          "tabs": {
+            "captureVisibleTab": {
+              "minArgs": 0,
+              "maxArgs": 2
+            },
+            "create": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "detectLanguage": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "discard": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "duplicate": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "executeScript": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "get": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getCurrent": {
+              "minArgs": 0,
+              "maxArgs": 0
+            },
+            "getZoom": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "getZoomSettings": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "goBack": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "goForward": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "highlight": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "insertCSS": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "move": {
+              "minArgs": 2,
+              "maxArgs": 2
+            },
+            "query": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "reload": {
+              "minArgs": 0,
+              "maxArgs": 2
+            },
+            "remove": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "removeCSS": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "sendMessage": {
+              "minArgs": 2,
+              "maxArgs": 3
+            },
+            "setZoom": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "setZoomSettings": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "update": {
+              "minArgs": 1,
+              "maxArgs": 2
+            }
+          },
+          "topSites": {
+            "get": {
+              "minArgs": 0,
+              "maxArgs": 0
+            }
+          },
+          "webNavigation": {
+            "getAllFrames": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "getFrame": {
+              "minArgs": 1,
+              "maxArgs": 1
+            }
+          },
+          "webRequest": {
+            "handlerBehaviorChanged": {
+              "minArgs": 0,
+              "maxArgs": 0
+            }
+          },
+          "windows": {
+            "create": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "get": {
+              "minArgs": 1,
+              "maxArgs": 2
+            },
+            "getAll": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "getCurrent": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "getLastFocused": {
+              "minArgs": 0,
+              "maxArgs": 1
+            },
+            "remove": {
+              "minArgs": 1,
+              "maxArgs": 1
+            },
+            "update": {
+              "minArgs": 2,
+              "maxArgs": 2
+            }
+          }
+        };
+        if (Object.keys(apiMetadata).length === 0) {
+          throw new Error("api-metadata.json has not been included in browser-polyfill");
+        }
+        class DefaultWeakMap extends WeakMap {
+          constructor(createItem, items = void 0) {
+            super(items);
+            this.createItem = createItem;
+          }
+          get(key) {
+            if (!this.has(key)) {
+              this.set(key, this.createItem(key));
+            }
+            return super.get(key);
+          }
+        }
+        const isThenable = (value) => {
+          return value && typeof value === "object" && typeof value.then === "function";
+        };
+        const makeCallback = (promise, metadata) => {
+          return (...callbackArgs) => {
+            if (extensionAPIs.runtime.lastError) {
+              promise.reject(new Error(extensionAPIs.runtime.lastError.message));
+            } else if (metadata.singleCallbackArg || callbackArgs.length <= 1 && metadata.singleCallbackArg !== false) {
+              promise.resolve(callbackArgs[0]);
+            } else {
+              promise.resolve(callbackArgs);
+            }
+          };
+        };
+        const pluralizeArguments = (numArgs) => numArgs == 1 ? "argument" : "arguments";
+        const wrapAsyncFunction = (name, metadata) => {
+          return function asyncFunctionWrapper(target, ...args) {
+            if (args.length < metadata.minArgs) {
+              throw new Error(`Expected at least ${metadata.minArgs} ${pluralizeArguments(metadata.minArgs)} for ${name}(), got ${args.length}`);
+            }
+            if (args.length > metadata.maxArgs) {
+              throw new Error(`Expected at most ${metadata.maxArgs} ${pluralizeArguments(metadata.maxArgs)} for ${name}(), got ${args.length}`);
+            }
+            return new Promise((resolve, reject) => {
+              if (metadata.fallbackToNoCallback) {
+                try {
+                  target[name](...args, makeCallback({
+                    resolve,
+                    reject
+                  }, metadata));
+                } catch (cbError) {
+                  console.warn(`${name} API method doesn't seem to support the callback parameter, falling back to call it without a callback: `, cbError);
+                  target[name](...args);
+                  metadata.fallbackToNoCallback = false;
+                  metadata.noCallback = true;
+                  resolve();
+                }
+              } else if (metadata.noCallback) {
+                target[name](...args);
+                resolve();
+              } else {
+                target[name](...args, makeCallback({
+                  resolve,
+                  reject
+                }, metadata));
+              }
+            });
+          };
+        };
+        const wrapMethod = (target, method, wrapper) => {
+          return new Proxy(method, {
+            apply(targetMethod, thisObj, args) {
+              return wrapper.call(thisObj, target, ...args);
+            }
+          });
+        };
+        let hasOwnProperty = Function.call.bind(Object.prototype.hasOwnProperty);
+        const wrapObject = (target, wrappers = {}, metadata = {}) => {
+          let cache = /* @__PURE__ */ Object.create(null);
+          let handlers = {
+            has(proxyTarget2, prop) {
+              return prop in target || prop in cache;
+            },
+            get(proxyTarget2, prop, receiver) {
+              if (prop in cache) {
+                return cache[prop];
+              }
+              if (!(prop in target)) {
+                return void 0;
+              }
+              let value = target[prop];
+              if (typeof value === "function") {
+                if (typeof wrappers[prop] === "function") {
+                  value = wrapMethod(target, target[prop], wrappers[prop]);
+                } else if (hasOwnProperty(metadata, prop)) {
+                  let wrapper = wrapAsyncFunction(prop, metadata[prop]);
+                  value = wrapMethod(target, target[prop], wrapper);
+                } else {
+                  value = value.bind(target);
+                }
+              } else if (typeof value === "object" && value !== null && (hasOwnProperty(wrappers, prop) || hasOwnProperty(metadata, prop))) {
+                value = wrapObject(value, wrappers[prop], metadata[prop]);
+              } else if (hasOwnProperty(metadata, "*")) {
+                value = wrapObject(value, wrappers[prop], metadata["*"]);
+              } else {
+                Object.defineProperty(cache, prop, {
+                  configurable: true,
+                  enumerable: true,
+                  get() {
+                    return target[prop];
+                  },
+                  set(value2) {
+                    target[prop] = value2;
+                  }
+                });
+                return value;
+              }
+              cache[prop] = value;
+              return value;
+            },
+            set(proxyTarget2, prop, value, receiver) {
+              if (prop in cache) {
+                cache[prop] = value;
+              } else {
+                target[prop] = value;
+              }
+              return true;
+            },
+            defineProperty(proxyTarget2, prop, desc) {
+              return Reflect.defineProperty(cache, prop, desc);
+            },
+            deleteProperty(proxyTarget2, prop) {
+              return Reflect.deleteProperty(cache, prop);
+            }
+          };
+          let proxyTarget = Object.create(target);
+          return new Proxy(proxyTarget, handlers);
+        };
+        const wrapEvent = (wrapperMap) => ({
+          addListener(target, listener, ...args) {
+            target.addListener(wrapperMap.get(listener), ...args);
+          },
+          hasListener(target, listener) {
+            return target.hasListener(wrapperMap.get(listener));
+          },
+          removeListener(target, listener) {
+            target.removeListener(wrapperMap.get(listener));
+          }
+        });
+        const onRequestFinishedWrappers = new DefaultWeakMap((listener) => {
+          if (typeof listener !== "function") {
+            return listener;
+          }
+          return function onRequestFinished(req) {
+            const wrappedReq = wrapObject(
+              req,
+              {},
+              {
+                getContent: {
+                  minArgs: 0,
+                  maxArgs: 0
+                }
+              }
+            );
+            listener(wrappedReq);
+          };
+        });
+        const onMessageWrappers = new DefaultWeakMap((listener) => {
+          if (typeof listener !== "function") {
+            return listener;
+          }
+          return function onMessage(message, sender, sendResponse) {
+            let didCallSendResponse = false;
+            let wrappedSendResponse;
+            let sendResponsePromise = new Promise((resolve) => {
+              wrappedSendResponse = function(response) {
+                didCallSendResponse = true;
+                resolve(response);
+              };
+            });
+            let result;
+            try {
+              result = listener(message, sender, wrappedSendResponse);
+            } catch (err) {
+              result = Promise.reject(err);
+            }
+            const isResultThenable = result !== true && isThenable(result);
+            if (result !== true && !isResultThenable && !didCallSendResponse) {
+              return false;
+            }
+            const sendPromisedResult = (promise) => {
+              promise.then((msg) => {
+                sendResponse(msg);
+              }, (error) => {
+                let message2;
+                if (error && (error instanceof Error || typeof error.message === "string")) {
+                  message2 = error.message;
+                } else {
+                  message2 = "An unexpected error occurred";
+                }
+                sendResponse({
+                  __mozWebExtensionPolyfillReject__: true,
+                  message: message2
+                });
+              }).catch((err) => {
+                console.error("Failed to send onMessage rejected reply", err);
+              });
+            };
+            if (isResultThenable) {
+              sendPromisedResult(result);
+            } else {
+              sendPromisedResult(sendResponsePromise);
+            }
+            return true;
+          };
+        });
+        const wrappedSendMessageCallback = ({
+          reject,
+          resolve
+        }, reply) => {
+          if (extensionAPIs.runtime.lastError) {
+            if (extensionAPIs.runtime.lastError.message === CHROME_SEND_MESSAGE_CALLBACK_NO_RESPONSE_MESSAGE) {
+              resolve();
+            } else {
+              reject(new Error(extensionAPIs.runtime.lastError.message));
+            }
+          } else if (reply && reply.__mozWebExtensionPolyfillReject__) {
+            reject(new Error(reply.message));
+          } else {
+            resolve(reply);
+          }
+        };
+        const wrappedSendMessage = (name, metadata, apiNamespaceObj, ...args) => {
+          if (args.length < metadata.minArgs) {
+            throw new Error(`Expected at least ${metadata.minArgs} ${pluralizeArguments(metadata.minArgs)} for ${name}(), got ${args.length}`);
+          }
+          if (args.length > metadata.maxArgs) {
+            throw new Error(`Expected at most ${metadata.maxArgs} ${pluralizeArguments(metadata.maxArgs)} for ${name}(), got ${args.length}`);
+          }
+          return new Promise((resolve, reject) => {
+            const wrappedCb = wrappedSendMessageCallback.bind(null, {
+              resolve,
+              reject
+            });
+            args.push(wrappedCb);
+            apiNamespaceObj.sendMessage(...args);
+          });
+        };
+        const staticWrappers = {
+          devtools: {
+            network: {
+              onRequestFinished: wrapEvent(onRequestFinishedWrappers)
+            }
+          },
+          runtime: {
+            onMessage: wrapEvent(onMessageWrappers),
+            onMessageExternal: wrapEvent(onMessageWrappers),
+            sendMessage: wrappedSendMessage.bind(null, "sendMessage", {
+              minArgs: 1,
+              maxArgs: 3
+            })
+          },
+          tabs: {
+            sendMessage: wrappedSendMessage.bind(null, "sendMessage", {
+              minArgs: 2,
+              maxArgs: 3
+            })
+          }
+        };
+        const settingMetadata = {
+          clear: {
+            minArgs: 1,
+            maxArgs: 1
+          },
+          get: {
+            minArgs: 1,
+            maxArgs: 1
+          },
+          set: {
+            minArgs: 1,
+            maxArgs: 1
+          }
+        };
+        apiMetadata.privacy = {
+          network: {
+            "*": settingMetadata
+          },
+          services: {
+            "*": settingMetadata
+          },
+          websites: {
+            "*": settingMetadata
+          }
+        };
+        return wrapObject(extensionAPIs, staticWrappers, apiMetadata);
+      };
+      module2.exports = wrapAPIs(chrome);
+    } else {
+      module2.exports = globalThis.browser;
+    }
+  });
+})(browserPolyfill);
+addHmrIntoScript("pages/background");
+addHmrIntoScript("pages/content/style.scss");
+console.log("background loaded");

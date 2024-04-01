@@ -1,34 +1,34 @@
-var scriptRel = function detectScriptRel() {
-  var relList = typeof document !== "undefined" && document.createElement("link").relList;
+const scriptRel = function detectScriptRel() {
+  const relList = typeof document !== "undefined" && document.createElement("link").relList;
   return relList && relList.supports && relList.supports("modulepreload") ? "modulepreload" : "preload";
 }();
-var assetsURL = function(dep) {
+const assetsURL = function(dep) {
   return "/" + dep;
 };
-var seen = {};
-var __vitePreload = function preload(baseModule, deps, importerUrl) {
+const seen = {};
+const __vitePreload = function preload(baseModule, deps, importerUrl) {
   let promise = Promise.resolve();
   if (deps && deps.length > 0) {
-    var links = document.getElementsByTagName("link");
+    const links = document.getElementsByTagName("link");
     promise = Promise.all(deps.map((dep) => {
       dep = assetsURL(dep);
       if (dep in seen)
         return;
       seen[dep] = true;
-      var isCss = dep.endsWith(".css");
-      var cssSelector = isCss ? '[rel="stylesheet"]' : "";
-      var isBaseRelative = !!importerUrl;
+      const isCss = dep.endsWith(".css");
+      const cssSelector = isCss ? '[rel="stylesheet"]' : "";
+      const isBaseRelative = !!importerUrl;
       if (isBaseRelative) {
         for (let i = links.length - 1; i >= 0; i--) {
-          var link = links[i];
-          if (link.href === dep && (!isCss || link.rel === "stylesheet")) {
+          const link2 = links[i];
+          if (link2.href === dep && (!isCss || link2.rel === "stylesheet")) {
             return;
           }
         }
       } else if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
         return;
       }
-      var link = document.createElement("link");
+      const link = document.createElement("link");
       link.rel = isCss ? "stylesheet" : scriptRel;
       if (!isCss) {
         link.as = "script";
@@ -45,7 +45,7 @@ var __vitePreload = function preload(baseModule, deps, importerUrl) {
     }));
   }
   return promise.then(() => baseModule()).catch((err) => {
-    var e = new Event("vite:preloadError", { cancelable: true });
+    const e = new Event("vite:preloadError", { cancelable: true });
     e.payload = err;
     window.dispatchEvent(e);
     if (!e.defaultPrevented) {
@@ -53,10 +53,6 @@ var __vitePreload = function preload(baseModule, deps, importerUrl) {
     }
   });
 };
-__vitePreload(() => import("../../../assets/js/toggleTheme.js"), true ? __vite__mapDeps([]) : void 0);
-function __vite__mapDeps(indexes) {
-  if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = []
-  }
-  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
-}
+export {
+  __vitePreload as _
+};

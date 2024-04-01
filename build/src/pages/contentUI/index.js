@@ -1,4 +1,59 @@
-var m=function(){var n=typeof document<"u"&&document.createElement("link").relList;return n&&n.supports&&n.supports("modulepreload")?"modulepreload":"preload"}(),h=function(i){return"/"+i},u={},p=function(n,a,c){let o=Promise.resolve();if(a&&a.length>0){var s=document.getElementsByTagName("link");o=Promise.all(a.map(e=>{if(e=h(e),!(e in u)){u[e]=!0;var t=e.endsWith(".css"),d=t?'[rel="stylesheet"]':"",v=!!c;if(v)for(let l=s.length-1;l>=0;l--){var r=s[l];if(r.href===e&&(!t||r.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${e}"]${d}`))return;var r=document.createElement("link");if(r.rel=t?"stylesheet":m,t||(r.as="script",r.crossOrigin=""),r.href=e,document.head.appendChild(r),t)return new Promise((l,f)=>{r.addEventListener("load",l),r.addEventListener("error",()=>f(new Error(`Unable to preload CSS for ${e}`)))})}}))}return o.then(()=>n()).catch(e=>{var t=new Event("vite:preloadError",{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e})};p(()=>import("../../../assets/js/root.88avG-Fh.js"),__vite__mapDeps([]));
+var scriptRel = function detectScriptRel() {
+  var relList = typeof document !== "undefined" && document.createElement("link").relList;
+  return relList && relList.supports && relList.supports("modulepreload") ? "modulepreload" : "preload";
+}();
+var assetsURL = function(dep) {
+  return "/" + dep;
+};
+var seen = {};
+var __vitePreload = function preload(baseModule, deps, importerUrl) {
+  let promise = Promise.resolve();
+  if (deps && deps.length > 0) {
+    var links = document.getElementsByTagName("link");
+    promise = Promise.all(deps.map((dep) => {
+      dep = assetsURL(dep);
+      if (dep in seen)
+        return;
+      seen[dep] = true;
+      var isCss = dep.endsWith(".css");
+      var cssSelector = isCss ? '[rel="stylesheet"]' : "";
+      var isBaseRelative = !!importerUrl;
+      if (isBaseRelative) {
+        for (let i = links.length - 1; i >= 0; i--) {
+          var link = links[i];
+          if (link.href === dep && (!isCss || link.rel === "stylesheet")) {
+            return;
+          }
+        }
+      } else if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
+        return;
+      }
+      var link = document.createElement("link");
+      link.rel = isCss ? "stylesheet" : scriptRel;
+      if (!isCss) {
+        link.as = "script";
+        link.crossOrigin = "";
+      }
+      link.href = dep;
+      document.head.appendChild(link);
+      if (isCss) {
+        return new Promise((res, rej) => {
+          link.addEventListener("load", res);
+          link.addEventListener("error", () => rej(new Error(`Unable to preload CSS for ${dep}`)));
+        });
+      }
+    }));
+  }
+  return promise.then(() => baseModule()).catch((err) => {
+    var e = new Event("vite:preloadError", { cancelable: true });
+    e.payload = err;
+    window.dispatchEvent(e);
+    if (!e.defaultPrevented) {
+      throw err;
+    }
+  });
+};
+__vitePreload(() => import("../../../assets/js/root.js"), true ? __vite__mapDeps([]) : void 0);
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {
     __vite__mapDeps.viteFileDeps = []

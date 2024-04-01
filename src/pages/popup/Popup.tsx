@@ -21,14 +21,23 @@ const Popup = () => {
     });
   }, []);
 
+  const calculateHeightClass = (itemsCount) => {
+    const maxHeight = 72;
+    const minHeight = 20;
+    const heightPerItem = 10;
+    let height = minHeight + (itemsCount * heightPerItem);
+    height = Math.min(height, maxHeight);
+    return `h-${height}`;
+  };
+
   const saveTabs = () => {
-    const tabUrls = tabs.map(tab => tab.url);
-    chrome.storage.local.set({ savedTabs: tabUrls }, () => {
+    const tabData = tabs.map(tab => ({ url: tab.url, title: tab.title }));
+    chrome.storage.local.set({ savedTabs: tabData }, () => {
       tabs.forEach(tab => {
         chrome.tabs.remove(tab.id);
       });
       setTabs([]);
-      setSavedTabs(tabUrls);
+      setSavedTabs(tabData);
     });
   };
 
@@ -69,7 +78,7 @@ const Popup = () => {
         <div className="flex p-4">
           <div className="flex-1 mr-2 w-32">
             <h2 className="text-md font-semibold mb-2">Active Tabs</h2>
-            <ScrollArea className="rounded bg-neutral-800 whitespace-nowrap">
+            <ScrollArea className={`${calculateHeightClass(tabs.length)} w-32 rounded bg-neutral-800 whitespace-nowrap`}>
               {tabs.map(tab => (
                 <li key={tab.id} className="flex items-center border-b border-neutral-600 last:border-b-0 p-2">
                   <img src={getFaviconUrl(tab.url)} alt="Favicon" className="w-4 h-4 mr-2" />
@@ -81,21 +90,27 @@ const Popup = () => {
 
           <div className="flex-1 ml-2">
             <h2 className="text-md font-semibold mb-2">Saved Tabs</h2>
-            <ScrollArea className="rounded bg-neutral-800">
-              {savedTabs.map((url, index) => (
-                <li key={index} className="flex items-center border-b border-neutral-600 last:border-b-0 p-2">
-                  <img src={getFaviconUrl(url)} alt="Favicon" className="w-4 h-4 mr-2" />
-                  <a href="#" onClick={() => openTab(url)} className="max-w-sm">
-                    {url}
-                  </a>
-                </li>
-              ))}
+            <ScrollArea className={`${calculateHeightClass(savedTabs.length)} w-44 rounded bg-neutral-800`}>
+              {savedTabs.length > 0 ? (
+                savedTabs.map((tab, index) => (
+                  <li key={index} className="flex items-center border-b border-neutral-600 last:border-b-0 p-2">
+                    <img src={getFaviconUrl(tab.url)} alt="Favicon" className="w-4 h-4 mr-2" />
+                    <a href="#" onClick={() => openTab(tab.url)} className="max-w-sm">
+                      {tab.title || tab.url}
+                    </a>
+                  </li>
+                ))
+              ) : (
+                <div className="text-gray-400 italic p-2">No tabs saved.</div>
+              )}
             </ScrollArea>
-            <Button
-              onClick={clearSavedTabs}
-              className="py-2 px-4 bg-rose-900 hover:bg-rose-950 rounded text-sm text-white font-semibold mt-2">
-              Clear Saved Tabs
-            </Button>
+            {savedTabs.length > 0 && (
+              <Button
+                onClick={clearSavedTabs}
+                className="py-2 px-4 bg-rose-900 hover:bg-rose-950 rounded text-sm text-white font-semibold mt-2">
+                Clear Saved Tabs
+              </Button>
+            )}
           </div>
         </div>
       </div>
