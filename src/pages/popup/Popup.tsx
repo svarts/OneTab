@@ -1,40 +1,44 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '@pages/popup/Popup.css';
 import withSuspense from '@src/shared/hoc/withSuspense';
 import withErrorBoundary from '@src/shared/hoc/withErrorBoundary';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
-const Popup = () => {
-  const [tabs, setTabs] = useState([]);
-  const [savedTabs, setSavedTabs] = useState([]);
+interface TabData {
+  url: string;
+  title?: string;
+}
+
+const Popup: React.FC = () => {
+  const [tabs, setTabs] = useState<chrome.tabs.Tab[]>([]);
+  const [savedTabs, setSavedTabs] = useState<TabData[]>([]);
 
   useEffect(() => {
-    chrome.tabs.query({ currentWindow: true }, function (retrievedTabs) {
+    chrome.tabs.query({ currentWindow: true }, (retrievedTabs) => {
       setTabs(retrievedTabs);
     });
 
-    chrome.storage.local.get('savedTabs', result => {
+    chrome.storage.local.get('savedTabs', (result) => {
       if (result.savedTabs) {
         setSavedTabs(result.savedTabs);
       }
     });
   }, []);
 
-  const calculateHeightClass = (itemsCount) => {
-    const maxHeight = 72;
-    const minHeight = 20;
-    const heightPerItem = 10;
-    let height = minHeight + (itemsCount * heightPerItem);
-    height = Math.min(height, maxHeight);
-    return `h-${height}`;
+  const calculateHeight = (itemsCount: number): string => {
+    const maxHeight = 200;
+    const minHeight = 80;
+    const heightPerItem = 16;
+    let height = minHeight + itemsCount * heightPerItem;
+    return `${Math.min(height, maxHeight)}px`; 
   };
 
   const saveTabs = () => {
-    const tabData = tabs.map(tab => ({ url: tab.url, title: tab.title }));
+    const tabData = tabs.map(tab => ({ url: tab.url ?? '', title: tab.title }));
     chrome.storage.local.set({ savedTabs: tabData }, () => {
       tabs.forEach(tab => {
-        chrome.tabs.remove(tab.id);
+        if (tab.id !== undefined) chrome.tabs.remove(tab.id);
       });
       setTabs([]);
       setSavedTabs(tabData);
@@ -47,11 +51,11 @@ const Popup = () => {
     });
   };
 
-  const openTab = url => {
+  const openTab = (url: string) => {
     chrome.tabs.create({ url });
   };
 
-  const getFaviconUrl = url => {
+  const getFaviconUrl = (url: string) => {
     try {
       const { hostname } = new URL(url);
       return `https://www.google.com/s2/favicons?sz=64&domain=${hostname}`;
@@ -78,10 +82,10 @@ const Popup = () => {
         <div className="flex p-4">
           <div className="flex-1 mr-2 w-32">
             <h2 className="text-md font-semibold mb-2">Active Tabs</h2>
-            <ScrollArea className={`${calculateHeightClass(tabs.length)} w-32 rounded bg-neutral-800 whitespace-nowrap`}>
+            <ScrollArea style={{ height: calculateHeight(tabs.length) }} className="w-32 rounded bg-neutral-800 whitespace-nowrap">
               {tabs.map(tab => (
                 <li key={tab.id} className="flex items-center border-b border-neutral-600 last:border-b-0 p-2">
-                  <img src={getFaviconUrl(tab.url)} alt="Favicon" className="w-4 h-4 mr-2" />
+                  <img src={getFaviconUrl(tab.url ?? '')} alt="Favicon" className="w-4 h-4 mr-2" />
                   <div>{tab.title}</div>
                 </li>
               ))}
@@ -90,7 +94,7 @@ const Popup = () => {
 
           <div className="flex-1 ml-2">
             <h2 className="text-md font-semibold mb-2">Saved Tabs</h2>
-            <ScrollArea className={`${calculateHeightClass(savedTabs.length)} w-44 rounded bg-neutral-800`}>
+            <ScrollArea style={{ height: calculateHeight(savedTabs.length) }} className="w-44 rounded bg-neutral-800">
               {savedTabs.length > 0 ? (
                 savedTabs.map((tab, index) => (
                   <li key={index} className="flex items-center border-b border-neutral-600 last:border-b-0 p-2">
